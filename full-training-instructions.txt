@@ -1,0 +1,67 @@
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
+
+bash Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
+
+enter, enter, yes, defaults
+
+sudo reboot
+
+conda activate
+conda create -n alpaca python=3.10
+conda activate alpaca
+
+export PATH="/home/ubuntu/miniconda3/envs/alpaca/bin:$PATH"
+
+sudo apt-get install git-lfs
+git lfs install
+
+git clone https://github.com/tatsu-lab/stanford_alpaca
+
+git clone https://huggingface.co/decapoda-research/llama-7b-hf
+#remember to edit the tokenizer_config.json from LLaMATokenizer to LlamaTokenizer
+
+git clone https://huggingface.co/8bit-coder/alpaca-7b-nativeEnhanced
+
+pip install sentencepiece
+pip install git+https://github.com/huggingface/transformers.git
+
+cd ./stanford_alpaca
+
+pip install -r requirements.txt
+
+cd ..
+
+torchrun --nproc_per_node=8 --master_port=3045 ./stanford_alpaca/train.py --model_name_or_path ./llama-7b-hf --data_path ./alpaca-7b-nativeEnhanced/training_files/alpaca-megaset-fixed.json --fp16 True --output_dir ./output_7b --num_train_epochs 3 --per_device_train_batch_size 2 --per_device_eval_batch_size 2 --gradient_accumulation_steps 16 --evaluation_strategy "no" --save_strategy "steps" --save_steps 200 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type "cosine" --logging_steps 1 --fsdp "full_shard auto_wrap" --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' --tf32 True
+
+# now, make sure with nano that convert-hf-to-pth-16b.py has proper paths to everything
+
+pip install -q datasets loralib sentencepiece
+pip install bitsandbytes
+
+python convert-hf-to-pth-16b.py
+
+git clone https://github.com/antimatter15/alpaca.cpp
+
+cd alpaca.cpp
+
+mkdir models
+
+cd ..
+
+mv consolidated.01.pth ./alpaca.cpp/models/consolidated.00.pth
+mv params.json ./alpaca.cpp/models/params.json
+mv output_13b/tokenizer.model ./alpaca.cpp/models/tokenizer.model
+
+cd alpaca.cpp
+
+make
+
+cd ..
+
+python .deez/convert-pth-to-ggml.py ./alpaca.cpp/models 2 (1 for 7b, 2 for 13b, and the rest you can check yourself ;)
+
+cd alpaca.cpp
+
+./quantize models/ggml-model-f16.bin ggml-alpaca-13b-nativeEnhanced-q4.bin 2
+
+there's your finished model!

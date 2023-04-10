@@ -1,7 +1,7 @@
 #!/bin/bash
 MODEL=$1
 LLAMA=${HOME}/repos/llama.cpp
-PROMPT=${HOME}/repos/text-generation-webui/prompts
+PROMPT=${HOME}/repos/llama-ggml-tools/prompts
 
 if [ "${MODEL}" = "" ];
 then

@@ -13,8 +13,16 @@ def download_and_build_llama(llama_path):
 def main():
   # Set the model path. Use the provided argument, if available, otherwise use the default model path.
   model = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.environ['HOME'], 'models', 'gpt4-x-alpaca-native-13B-ggml.bin')
+  # Check if the model file exists
+  if not os.path.isfile(model):
+    print(f"Error: Model file not found at {model}")
+    sys.exit(1)
   # Set the prompt path. Use the provided argument, if available, otherwise use the default prompt path.
   prompt = sys.argv[2] if len(sys.argv) > 1 else os.path.join(os.environ['HOME'], 'llama-ggml-tools', 'prompts', 'Alpaca.txt')
+  # Check if the prompt file exists
+  if not os.path.isfile(prompt):
+    print(f"Error: Prompt file not found at {prompt}")
+    sys.exit(1)
   # Set the path for the llama.cpp repository.
   llama_path = os.path.join(os.environ['HOME'], 'llama-ggml-tools', 'repos', 'llama.cpp')
   llama_executable = os.path.join(llama_path, 'main')

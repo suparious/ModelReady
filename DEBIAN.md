@@ -29,3 +29,20 @@ wget https://huggingface.co/Pi3141/alpaca-7b-native-enhanced/resolve/main/ggml-m
   -O models/alpaca-7B-NE/ggml-model-q4_1.bin
 python server.py --listen --model alpaca-7B-NE --threads 7 --chat
 ```
+
+Enlarge the swapfile
+
+```bash
+sudo fallocate -l 31G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon -s
+```
+
+add an entry to your `/etc/fstab` file to make the swapfile permanent
+
+```bash
+/swapfile   none    swap    sw    0   0
+```
+

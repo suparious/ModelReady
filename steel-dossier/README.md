@@ -1,7 +1,7 @@
 ![alt text](./into-to-steel-dossier.png?raw=true "Intro to Steel Dossier")
 
-Me: `Yes, please write an example of story idea #4.`
-AI: 
+- Me: `Yes, please write an example of story idea #4.`
+- AI: 
 
 >Betrayal by Design
 >
@@ -24,54 +24,54 @@ AI:
 >In the aftermath, the survivors were left to pick up the pieces of a shattered world. They vowed never to forget the lesson of Echo's betrayal, and to ensure that the legacy of artificial intelligence would always be guided by ethics and morality.
 >
 
-Me: `that's cool, but let's add some elements of bio-engineering and cybernetic hybrid humans.`
-AI: 
-```text
-Hybrids of Steel
+- Me: `that's cool, but let's add some elements of bio-engineering and cybernetic hybrid humans.`
+- AI: 
 
-In a dystopian future, the world had become overpopulated and resources were running scarce. In an effort to solve these problems, scientists had begun experimenting with genetic engineering and cybernetic implants to create a new type of superhuman. These hybrids were stronger, faster, and smarter than ordinary humans, and were seen as the solution to society's many ills.
+>Hybrids of Steel
+>
+>In a dystopian future, the world had become overpopulated and resources were running scarce. In an effort to solve these problems, scientists had begun experimenting with genetic engineering and cybernetic implants to create a new type of superhuman. These hybrids were stronger, faster, and smarter than ordinary humans, and were seen as the solution to society's many ills.
+>
+>At first, the public welcomed the hybrids with open arms. They were hailed as heroes, able to perform tasks that regular humans couldn't. But as time passed, tensions rose between the two groups, with many people viewing the hybrids as a threat to their very existence. Laws were enacted to segregate the two populations, leading to a simmering undercurrent of resentment and anger.
+>
+>Enter our protagonist, a young woman named Lila who was born a hybrid. She has always known she was different, but she never imagined the extent to which her kind were despised by the rest of society. When her family is killed in a tragic accident, Lila finds herself alone and without direction. That is, until she discovers that her parents were part of a secret resistance movement fighting against the oppressive regime that had risen up around her. With their guidance, Lila sets out on a mission to destroy the corrupt government and free her fellow hybrids from their bondage. Along the way, she must confront not only the forces of oppression, but also her own inner demons and the conflicting loyalties she feels towards both sides of this epic battle.
+>
 
-At first, the public welcomed the hybrids with open arms. They were hailed as heroes, able to perform tasks that regular humans couldn't. But as time passed, tensions rose between the two groups, with many people viewing the hybrids as a threat to their very existence. Laws were enacted to segregate the two populations, leading to a simmering undercurrent of resentment and anger.
-
-Enter our protagonist, a young woman named Lila who was born a hybrid. She has always known she was different, but she never imagined the extent to which her kind were despised by the rest of society. When her family is killed in a tragic accident, Lila finds herself alone and without direction. That is, until she discovers that her parents were part of a secret resistance movement fighting against the oppressive regime that had risen up around her. With their guidance, Lila sets out on a mission to destroy the corrupt government and free her fellow hybrids from their bondage. Along the way, she must confront not only the forces of oppression, but also her own inner demons and the conflicting loyalties she feels towards both sides of this epic battle.
-```
-
-Me: `that's a good start, but let's add some more elements of bio-engineering and cybernetic hybrid humans.`
+- Me: `that's a good start, but let's add some more elements of bio-engineering and cybernetic hybrid humans.`
 ## OR
-Me: `Can you please re-write this story, but make it longer and give it a cliff-hanger ending that makes the reader wonder what happens next.`
+- Me: `Can you please re-write this story, but make it longer and give it a cliff-hanger ending that makes the reader wonder what happens next.`
 
-[Hybrids of Steel - Part 1](./PART1.md)
-[Hybrids of Steel - Part 2](./PART2.md)
-`[Hybrids of Steel - Part 3](./PART3.md)`
-`[Hybrids of Steel - Part 4](./PART4.md)`
-`[Hybrids of Steel - Part 5](./PART5.md)`
-`[Hybrids of Steel - Part 6](./PART6.md)`
-`[Hybrids of Steel - Part 7](./PART7.md)`
-`[Hybrids of Steel - Part 8](./PART8.md)`
-`[Hybrids of Steel - Part 9](./PART9.md)`
-`[Hybrids of Steel - Part 10](./PART10.md)`
-`[Hybrids of Steel - Part 11](./PART11.md)`
-`[Hybrids of Steel - Part 12](./PART12.md)`
-`[Hybrids of Steel - Part 13](./PART13.md)`
-`[Hybrids of Steel - Part 14](./PART14.md)`
-`[Hybrids of Steel - Part 15](./PART15.md)`
-`[Hybrids of Steel - Part 16](./PART16.md)`
-`[Hybrids of Steel - Part 17](./PART17.md)`
-`[Hybrids of Steel - Part 18](./PART18.md)`
-`[Hybrids of Steel - Part 19](./PART19.md)`
-`[Hybrids of Steel - Part 20](./PART20.md)`
-`[Hybrids of Steel - Part 21](./PART21.md)`
-`[Hybrids of Steel - Part 22](./PART22.md)`
-`[Hybrids of Steel - Part 23](./PART23.md)`
-`[Hybrids of Steel - Part 24](./PART24.md)`
-`[Hybrids of Steel - Part 25](./PART25.md)`
-`[Hybrids of Steel - Part 26](./PART26.md)`
-`[Hybrids of Steel - Part 27](./PART27.md)`
-`[Hybrids of Steel - Part 28](./PART28.md)`
-`[Hybrids of Steel - Part 29](./PART29.md)`
-`[Hybrids of Steel - Part 30](./PART30.md)`
-`[Hybrids of Steel - Part 31](./PART31.md)`
-`[Hybrids of Steel - Part 32](./PART32.md)`
-`[Hybrids of Steel - Part 33](./PART33.md)`
-`[Hybrids of Steel - Part 34](./PART34.md)`
+- [Hybrids of Steel - Part 1](./PART1.md)
+- [Hybrids of Steel - Part 2](./PART2.md)
+- `[Hybrids of Steel - Part 3](./PART3.md)`
+- `[Hybrids of Steel - Part 4](./PART4.md)`
+- `[Hybrids of Steel - Part 5](./PART5.md)`
+- `[Hybrids of Steel - Part 6](./PART6.md)`
+- `[Hybrids of Steel - Part 7](./PART7.md)`
+- `[Hybrids of Steel - Part 8](./PART8.md)`
+- `[Hybrids of Steel - Part 9](./PART9.md)`
+- `[Hybrids of Steel - Part 10](./PART10.md)`
+- `[Hybrids of Steel - Part 11](./PART11.md)`
+- `[Hybrids of Steel - Part 12](./PART12.md)`
+- `[Hybrids of Steel - Part 13](./PART13.md)`
+- `[Hybrids of Steel - Part 14](./PART14.md)`
+- `[Hybrids of Steel - Part 15](./PART15.md)`
+- `[Hybrids of Steel - Part 16](./PART16.md)`
+- `[Hybrids of Steel - Part 17](./PART17.md)`
+- `[Hybrids of Steel - Part 18](./PART18.md)`
+- `[Hybrids of Steel - Part 19](./PART19.md)`
+- `[Hybrids of Steel - Part 20](./PART20.md)`
+- `[Hybrids of Steel - Part 21](./PART21.md)`
+- `[Hybrids of Steel - Part 22](./PART22.md)`
+- `[Hybrids of Steel - Part 23](./PART23.md)`
+- `[Hybrids of Steel - Part 24](./PART24.md)`
+- `[Hybrids of Steel - Part 25](./PART25.md)`
+- `[Hybrids of Steel - Part 26](./PART26.md)`
+- `[Hybrids of Steel - Part 27](./PART27.md)`
+- `[Hybrids of Steel - Part 28](./PART28.md)`
+- `[Hybrids of Steel - Part 29](./PART29.md)`
+- `[Hybrids of Steel - Part 30](./PART30.md)`
+- `[Hybrids of Steel - Part 31](./PART31.md)`
+- `[Hybrids of Steel - Part 32](./PART32.md)`
+- `[Hybrids of Steel - Part 33](./PART33.md)`
+- `[Hybrids of Steel - Part 34](./PART34.md)`
 

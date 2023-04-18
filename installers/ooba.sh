@@ -21,16 +21,19 @@ if [ ! -f /etc/systemd/system/ooba.service ]; then
 fi
 
 # clone the repository
-progress "Cloning the Ooba repository..."
-if [ -d "${INSTALL_DIR}" ]; then
+
+if [ -d ${INSTALL_DIR} ]; then
+  progress "Cloning the Ooba repository..."
   git clone https://github.com/oobabooga/text-generation-webui.git "${INSTALL_DIR}"
 else
+  progress "Updating existing Ooba repository..."
   cd "${INSTALL_DIR}"
   git pull
 fi
 
 # create the virtual environment
 progress "Creating virtual python environment..."
+cd "${INSTALL_DIR}"
 python -m venv venv
 source venv/bin/activate
 

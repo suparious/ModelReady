@@ -47,6 +47,7 @@ progress "Installing GPTQ for LLaMA..."
 cd "${INSTALL_DIR}/repositories"
 git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda
 cd GPTQ-for-LLaMa
+pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
 python setup_cuda.py install
 cd "${INSTALL_DIR}"
 

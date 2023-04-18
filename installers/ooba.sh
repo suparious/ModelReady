@@ -39,6 +39,9 @@ pip install -r requirements.txt
 progress "Downloading default model..."
 python download-model.py facebook/opt-1.3b
 
+# create default repository directory
+mkdir -p "${INSTALL_DIR}/repositories"
+
 # Install GPTQ support for 4bit 128g LLaMA
 progress "Installing GPTQ for LLaMA..."
 cd "${INSTALL_DIR}/repositories"

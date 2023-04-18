@@ -1,0 +1,22 @@
+[Unit]
+Description=Ooba Application
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Environment="HOME=/home/YOUR_USERNAME"
+Environment="CUDA_HOME=/usr/local/cuda-11.7"
+ExecStart=/usr/local/bin/ooba-launch.sh
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ooba
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

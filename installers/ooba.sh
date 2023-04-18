@@ -2,9 +2,9 @@
 # This script is used to install the Ooba application
 XFORMERS_WHL=$1
 # Set the environment variables
-INSTALL_DIR="${HOME}/ooba"
-CUDA_HOME="/usr/local/cuda-11.7"
-CUDA_VERSION="117"
+INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
+CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
+CUDA_VERSION="${CUDA_VERSION:-117}"
 
 # Function to display progress messages
 progress() {
@@ -32,11 +32,11 @@ progress "Installing PyTorch, TorchVision, and TorchAudio for CUDA ${CUDA_VERSIO
 pip install torch torchvision torchaudio --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
 
 # install the requirements
-progress "Installing Python dependencies..."
+progress "Installing other Python dependencies..."
 pip install -r requirements.txt
 
 # download a small default model
-progress "Downloading default model..."
+progress "Downloading a default model..."
 python download-model.py facebook/opt-1.3b
 
 # create default repository directory

@@ -40,38 +40,6 @@
 ## OR
 - Me: `Can you please re-write this story, but make it longer and give it a cliff-hanger ending that makes the reader wonder what happens next.`
 
-- [Hybrids of Steel - Part 1](./PART1.md)
-- [Hybrids of Steel - Part 2](./PART2.md)
-- `[Hybrids of Steel - Part 3](./PART3.md)`
-- `[Hybrids of Steel - Part 4](./PART4.md)`
-- `[Hybrids of Steel - Part 5](./PART5.md)`
-- `[Hybrids of Steel - Part 6](./PART6.md)`
-- `[Hybrids of Steel - Part 7](./PART7.md)`
-- `[Hybrids of Steel - Part 8](./PART8.md)`
-- `[Hybrids of Steel - Part 9](./PART9.md)`
-- `[Hybrids of Steel - Part 10](./PART10.md)`
-- `[Hybrids of Steel - Part 11](./PART11.md)`
-- `[Hybrids of Steel - Part 12](./PART12.md)`
-- `[Hybrids of Steel - Part 13](./PART13.md)`
-- `[Hybrids of Steel - Part 14](./PART14.md)`
-- `[Hybrids of Steel - Part 15](./PART15.md)`
-- `[Hybrids of Steel - Part 16](./PART16.md)`
-- `[Hybrids of Steel - Part 17](./PART17.md)`
-- `[Hybrids of Steel - Part 18](./PART18.md)`
-- `[Hybrids of Steel - Part 19](./PART19.md)`
-- `[Hybrids of Steel - Part 20](./PART20.md)`
-- `[Hybrids of Steel - Part 21](./PART21.md)`
-- `[Hybrids of Steel - Part 22](./PART22.md)`
-- `[Hybrids of Steel - Part 23](./PART23.md)`
-- `[Hybrids of Steel - Part 24](./PART24.md)`
-- `[Hybrids of Steel - Part 25](./PART25.md)`
-- `[Hybrids of Steel - Part 26](./PART26.md)`
-- `[Hybrids of Steel - Part 27](./PART27.md)`
-- `[Hybrids of Steel - Part 28](./PART28.md)`
-- `[Hybrids of Steel - Part 29](./PART29.md)`
-- `[Hybrids of Steel - Part 30](./PART30.md)`
-- `[Hybrids of Steel - Part 31](./PART31.md)`
-- `[Hybrids of Steel - Part 32](./PART32.md)`
-- `[Hybrids of Steel - Part 33](./PART33.md)`
-- `[Hybrids of Steel - Part 34](./PART34.md)`
-
+* [Hybrids of Steel - Part 1](./PART1.md)
+* [Hybrids of Steel - Part 2](./PART2.md)
+* `[Hybrids of Steel - Part 3](./PART3.md)`

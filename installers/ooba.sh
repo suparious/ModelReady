@@ -57,6 +57,7 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
   cd "${INSTALL_DIR}/repositories/pytorch"
   git submodule sync
   git submodule update --init --recursive
+  source ~/anaconda3/bin/activate
   conda init
   conda update -n base -c defaults conda -y
   conda create -n torch-${CUDA_VERSION} -y

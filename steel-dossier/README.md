@@ -1,4 +1,4 @@
-![alt text](./into-to-steel-dossier.png?raw=true "Intro to Steel Dossier")
+![alt text](./seed.png?raw=true "Intro to Steel Dossier")
 
 ## Continue reading...
 

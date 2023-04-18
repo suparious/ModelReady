@@ -12,7 +12,7 @@ Environment="PYENV_VERSION=3.11.3"
 Environment="LISTEN_PORT=7860"
 Environment="THREADS=7"
 Environment="PARAMS=--auto-devices --listen --chat --xformers"
-ExecStart=/home/YOUR_USERNAME/llama-gptq-tools/ooba-launch.sh
+ExecStart=/home/YOUR_USERNAME/llama-ggml-tools/launchers/ooba.sh
 Restart=on-failure
 RestartSec=5
 StartLimitIntervalSec=60

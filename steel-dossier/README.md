@@ -36,9 +36,9 @@
 >Enter our protagonist, a young woman named Lila who was born a hybrid. She has always known she was different, but she never imagined the extent to which her kind were despised by the rest of society. When her family is killed in a tragic accident, Lila finds herself alone and without direction. That is, until she discovers that her parents were part of a secret resistance movement fighting against the oppressive regime that had risen up around her. With their guidance, Lila sets out on a mission to destroy the corrupt government and free her fellow hybrids from their bondage. Along the way, she must confront not only the forces of oppression, but also her own inner demons and the conflicting loyalties she feels towards both sides of this epic battle.
 >
 
-- Me: `that's a good start, but let's add some more elements of bio-engineering and cybernetic hybrid humans.`
-## OR
 - Me: `Can you please re-write this story, but make it longer and give it a cliff-hanger ending that makes the reader wonder what happens next.`
+
+## Continue reading...
 
 * [Hybrids of Steel - Part 1](./PART1.md)
 * [Hybrids of Steel - Part 2](./PART2.md)

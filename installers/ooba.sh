@@ -16,7 +16,7 @@ set -e
 
 # copy example service to systemd
 progress "Copying systemd service file..."
-sudo cp systemd/ooba.service.example /etc/systemd/system/ooba.service
+sudo cp ../systemd/ooba.service.example /etc/systemd/system/ooba.service
 
 # clone the repository
 progress "Cloning the Ooba repository..."

@@ -11,6 +11,7 @@ export CPP=/usr/bin/clang-cpp
 export CXX=/usr/bin/clang++
 export LD=/usr/bin/ld.bfd
 # export CFLAGS="-O3 -march=native -mtune=native -fPIC -fno-plt -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-ident -fno-merge-constants -fno-stack-check -fno-stack-protector -fno-strict-aliasing -fno-strict-overflow -fno-merge-all-consta
+export CFLAGS="-Wno-error -fno-strict-overflow"
 
 # Function to display progress messages
 progress() {

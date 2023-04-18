@@ -1,4 +1,3 @@
-- Me: `Yes, please write an example of story idea #4.`
 - AI: 
 
 >Betrayal by Design

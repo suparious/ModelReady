@@ -15,6 +15,7 @@ if [ -d "${INSTALL_DIR}" ]; then
     # activate the virtual environment
     source venv/bin/activate
     # install the requirements
+    pip install --upgrade pip
     pip install --upgrade -r requirements.txt
     # run the application
     exec python server.py ${PARAMS} --threads ${THREADS}

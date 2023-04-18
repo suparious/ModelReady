@@ -5,6 +5,7 @@ XFORMERS_WHL=$1
 INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
 CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
 CUDA_VERSION="${CUDA_VERSION:-117}"
+DEFAULT_MODEL="facebook/opt-1.3b"
 
 # Function to display progress messages
 progress() {
@@ -14,8 +15,10 @@ progress() {
 set -e
 
 # copy example service to systemd
-progress "Copying systemd service file..."
-sudo cp ../systemd/ooba.service.example /etc/systemd/system/ooba.service
+if [ ! -f /etc/systemd/system/ooba.service ]; then
+  progress "Copying systemd service file..."
+  sudo cp ../systemd/ooba.service.example /etc/systemd/system/ooba.service
+fi
 
 # clone the repository
 progress "Cloning the Ooba repository..."
@@ -33,11 +36,12 @@ pip install torch torchvision torchaudio --extra-index-url "https://download.pyt
 
 # install the requirements
 progress "Installing other Python dependencies..."
+pip install --upgrade pip
 pip install -r requirements.txt
 
 # download a small default model
-progress "Downloading a default model..."
-python download-model.py facebook/opt-1.3b
+progress "Downloading a default model: ${DEFAULT_MODEL}..."
+python download-model.py "${DEFAULT_MODEL}"
 
 # create default repository directory
 mkdir -p "${INSTALL_DIR}/repositories"
@@ -53,15 +57,15 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
   conda create -n torch-${CUDA_VERSION}
   conda activate torch-${CUDA_VERSION}
   conda install cmake ninja -y
+  pip install --upgrade pip
   pip install -r requirements.txt
   conda install mkl mkl-include -y
   conda install -c pytorch magma-cuda${CUDA_VERSION} -y
   export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
   python setup.py develop
   # What comes next?
+  conda deactivate
 fi
-
-
 
 # Install GPTQ support for 4bit 128g LLaMA
 progress "Installing GPTQ for LLaMA..."
@@ -73,7 +77,7 @@ python setup_cuda.py install
 cd "${INSTALL_DIR}"
 
 # Install xformers for extra speed and memory efficiency
-if [ -e ${XFORMERS_WHL} ]; then
+if [ -z ${XFORMERS_WHL} ]; then
   progress "Building xformers (this can take a really long time)..."
   cd "${INSTALL_DIR}/repositories"
   git clone https://github.com/facebookresearch/xformers.git
@@ -81,6 +85,7 @@ if [ -e ${XFORMERS_WHL} ]; then
   git submodule update --init --recursive
   python -m venv venv
   source venv/bin/activate
+  pip install --upgrade pip
   pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
   pip install -r requirements.txt
   pip install wheel

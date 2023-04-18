@@ -21,8 +21,7 @@ if [ ! -f /etc/systemd/system/ooba.service ]; then
 fi
 
 # clone the repository
-
-if [ -d ${INSTALL_DIR} ]; then
+if [ ! -d ${INSTALL_DIR} ]; then
   progress "Cloning the Ooba repository..."
   git clone https://github.com/oobabooga/text-generation-webui.git "${INSTALL_DIR}"
 else

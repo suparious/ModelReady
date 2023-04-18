@@ -54,7 +54,7 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
   git submodule sync
   git submodule update --init --recursive
   conda update -n base -c defaults conda -y
-  conda create -n torch-${CUDA_VERSION}
+  conda create -n torch-${CUDA_VERSION} -y
   conda activate torch-${CUDA_VERSION}
   conda install cmake ninja -y
   pip install --upgrade pip

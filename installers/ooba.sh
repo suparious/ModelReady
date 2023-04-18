@@ -74,6 +74,7 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
   conda install mkl mkl-include -y
   conda install -c pytorch magma-cuda${CUDA_VERSION} -y
   export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
+  python setup.py clean
   python setup.py develop
   # What comes next?
   conda deactivate

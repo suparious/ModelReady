@@ -14,6 +14,10 @@ progress() {
 
 set -e
 
+# copy example service to systemd
+progress "Copying systemd service file..."
+sudo cp systemd/ooba.service.example /etc/systemd/system/ooba.service
+
 # clone the repository
 progress "Cloning the Ooba repository..."
 git clone https://github.com/oobabooga/text-generation-webui.git "${INSTALL_DIR}"

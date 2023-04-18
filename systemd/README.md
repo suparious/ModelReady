@@ -1,6 +1,11 @@
 ## Oobabooga systemd service
 
-put it in `/etc/systemd/system/ooba.service`
+copy the ooba.service.example file to `/etc/systemd/system/ooba.service` and edit the `ExecStart` line to point to the correct path of the ooba executable. Also look at the Environment variables and change them to your liking.
+
+```bash
+sudo cp ooba.service.example /etc/systemd/system/ooba.service
+sudo nano /etc/systemd/system/ooba.service
+```
 
 Then enable and start it with:
 

@@ -6,9 +6,13 @@ Requires=network.target
 [Service]
 Type=simple
 User=YOUR_USERNAME
-Environment="HOME=/home/YOUR_USERNAME"
+Environment="HOME=/home/YOUR_USERNAME/ooba"
 Environment="CUDA_HOME=/usr/local/cuda-11.7"
-ExecStart=/usr/local/bin/ooba-launch.sh
+Environment="PYENV_VERSION=3.11.3"
+Environment="LISTEN_PORT=7860"
+Environment="THREADS=7"
+Environment="PARAMS=--auto-devices --listen --chat --xformers"
+ExecStart=/home/YOUR_USERNAME/llama-gptq-tools/ooba-launch.sh
 Restart=on-failure
 RestartSec=5
 StartLimitIntervalSec=60

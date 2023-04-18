@@ -1,28 +1,35 @@
 #!/bin/bash
-# This script is used to launch the Ooba application
 
-# Set the environment variables
-INSTALL_DIR="${HOME}/ooba"
-PYENV_VERSION="3.11.3"
-PARAMS="--auto-devices --listen --threads 4 --chat --xformers"
-CUDA_HOME="/usr/local/cuda-11.7"
+# If unset, set the environment variables with default values
+INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
+PYENV_VERSION="${PYENV_VERSION:-3.11.3}"
+THREADS="${THREADS:-4}"
+PARAMS="${PARAMS:---auto-devices --listen --chat}"
+CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
 
 # run the application if it is installed
 if [ -d "${INSTALL_DIR}" ]; then
   cd "${INSTALL_DIR}"
   if [ -f "server.py" ]; then
+    # update the repository
+    git pull
     # activate the virtual environment
     pyenv shell "${PYENV_VERSION}"
     source venv/bin/activate
+    # install the requirements
+    pip install --upgrade -r requirements.txt
     # run the application
-    python server.py ${PARAMS}
+    exec python server.py ${PARAMS} --threads ${THREADS}
     deactivate
   else
-    echo "ERROR: server.py not found in ${INSTALL_DIR}"
+    echo "ERROR: Oobabooga server.py not found in ${INSTALL_DIR}"
+    exit 1
   fi
 else
   echo "WARNING: ${INSTALL_DIR} not found"
+  exit 1
 fi
+
 
 # params: [-h] [--notebook] [--chat] [--cai-chat] [--model MODEL] [--lora LORA] [--model-dir MODEL_DIR]
 #         [--lora-dir LORA_DIR] [--model-menu] [--no-stream] [--settings SETTINGS]

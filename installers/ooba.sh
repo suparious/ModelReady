@@ -1,8 +1,6 @@
 #!/bin/bash
-set -e
-
 # This script is used to install the Ooba application
-
+XFORMERS_WHL=$1
 # Set the environment variables
 INSTALL_DIR="${HOME}/ooba"
 PYENV_VERSION="3.11.3"
@@ -13,6 +11,8 @@ CUDA_VERSION="117"
 progress() {
   echo -e "\e[1;32m>>>\e[0m \e[1;33m$1\e[0m"
 }
+
+set -e
 
 # clone the repository
 progress "Cloning the Ooba repository..."
@@ -47,21 +47,25 @@ python setup_cuda.py install
 cd "${INSTALL_DIR}"
 
 # Install xformers for extra speed and memory efficiency
-progress "Installing xformers (this can take a while)..."
-cd "${INSTALL_DIR}/repositories"
-git clone https://github.com/facebookresearch/xformers.git
-cd xformers
-git submodule update --init --recursive
-python -m venv venv
-source venv/bin/activate
-pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
-pip install -r requirements.txt
-pip install wheel
-python setup.py build
-python setup.py bdist_wheel
-deactivate
+if [ -e ${XFORMERS_WHL} ]; then
+  progress "Building xformers (this can take a really long time)..."
+  cd "${INSTALL_DIR}/repositories"
+  git clone https://github.com/facebookresearch/xformers.git
+  cd xformers
+  git submodule update --init --recursive
+  python -m venv venv
+  source venv/bin/activate
+  pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+  pip install -r requirements.txt
+  pip install wheel
+  python setup.py build
+  python setup.py bdist_wheel
+  deactivate
+  export XFORMERS_WHL="${INSTALL_DIR}/repositories/xformers/dist/*.whl"
+fi
+progress "Installing xformers wheel..."
 cd "${INSTALL_DIR}"
 source venv/bin/activate
-pip install ${INSTALL_DIR}/repositories/xformers/dist/*.whl
+pip install ${XFORMERS_WHL}
 
 progress "Ooba application installation complete!"

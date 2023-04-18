@@ -3,7 +3,6 @@
 XFORMERS_WHL=$1
 # Set the environment variables
 INSTALL_DIR="${HOME}/ooba"
-PYENV_VERSION="3.11.3"
 CUDA_HOME="/usr/local/cuda-11.7"
 CUDA_VERSION="117"
 
@@ -24,9 +23,7 @@ git clone https://github.com/oobabooga/text-generation-webui.git "${INSTALL_DIR}
 cd "${INSTALL_DIR}"
 
 # create the virtual environment
-progress "Creating virtual environment and installing Python ${PYENV_VERSION}..."
-pyenv install "${PYENV_VERSION}"
-pyenv shell "${PYENV_VERSION}"
+progress "Creating virtual python environment..."
 python -m venv venv
 source venv/bin/activate
 

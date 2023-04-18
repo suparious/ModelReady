@@ -2,7 +2,6 @@
 
 # If unset, set the environment variables with default values
 INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
-PYENV_VERSION="${PYENV_VERSION:-3.11.3}"
 THREADS="${THREADS:-4}"
 PARAMS="${PARAMS:---auto-devices --listen --chat}"
 CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
@@ -14,7 +13,6 @@ if [ -d "${INSTALL_DIR}" ]; then
     # update the repository
     git pull
     # activate the virtual environment
-    pyenv shell "${PYENV_VERSION}"
     source venv/bin/activate
     # install the requirements
     pip install --upgrade -r requirements.txt

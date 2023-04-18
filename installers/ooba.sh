@@ -42,6 +42,27 @@ python download-model.py facebook/opt-1.3b
 # create default repository directory
 mkdir -p "${INSTALL_DIR}/repositories"
 
+# Build custom pytorch
+if [ ${CUDA_VERSION} -gt 118 ]; then
+  progress "Building custom PyTorch for CUDA ${CUDA_VERSION}..."
+  git clone --recursive https://github.com/pytorch/pytorch "${INSTALL_DIR}/repositories/pytorch"
+  cd "${INSTALL_DIR}/repositories/pytorch"
+  git submodule sync
+  git submodule update --init --recursive
+  conda update -n base -c defaults conda -y
+  conda create -n torch-${CUDA_VERSION}
+  conda activate torch-${CUDA_VERSION}
+  conda install cmake ninja -y
+  pip install -r requirements.txt
+  conda install mkl mkl-include -y
+  conda install -c pytorch magma-cuda${CUDA_VERSION} -y
+  export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
+  python setup.py develop
+  # What comes next?
+fi
+
+
+
 # Install GPTQ support for 4bit 128g LLaMA
 progress "Installing GPTQ for LLaMA..."
 cd "${INSTALL_DIR}/repositories"

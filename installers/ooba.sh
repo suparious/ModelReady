@@ -6,6 +6,11 @@ INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
 CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
 CUDA_VERSION="${CUDA_VERSION:-117}"
 DEFAULT_MODEL="facebook/opt-1.3b"
+export CC=/usr/bin/clang
+export CPP=/usr/bin/clang-cpp
+export CXX=/usr/bin/clang++
+export LD=/usr/bin/ld.bfd
+# export CFLAGS="-O3 -march=native -mtune=native -fPIC -fno-plt -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-ident -fno-merge-constants -fno-stack-check -fno-stack-protector -fno-strict-aliasing -fno-strict-overflow -fno-merge-all-consta
 
 # Function to display progress messages
 progress() {
@@ -64,7 +69,7 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
   conda activate torch-${CUDA_VERSION}
   conda install cmake ninja -y
   pip install --upgrade pip
-  pip install -r requirements.txt
+  pip install --upgrade -r requirements.txt
   conda install mkl mkl-include -y
   conda install -c pytorch magma-cuda${CUDA_VERSION} -y
   export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}

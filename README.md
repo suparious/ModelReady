@@ -35,3 +35,12 @@ Manual execution example:
 ```bash
 ./repos/llama.cpp/main -m models/alpaca-7b-native-enhanced.bin -n -1 --ctx_size 2048 --batch_size 16 --keep 512 --repeat_penalty 1.0 -t 4 --temp 0.4 --top_k 30 --top_p 0.18 --interactive-first -ins --color -i -r "User:" -f prompts/alpacanativeenhanced.txt
 ```
+
+MacBook Admin
+
+```bash
+brew install gh
+gh repo list myorgname --limit 1000 | while read -r repo _; do
+  gh repo clone "$repo" "$repo"
+done
+```

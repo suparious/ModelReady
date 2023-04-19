@@ -3,8 +3,8 @@
 export XFORMERS_WHL=$1
 # Set the environment variables
 INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
-CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.7}"
-CUDA_VERSION="${CUDA_VERSION:-117}"
+CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.8}"
+CUDA_VERSION="${CUDA_VERSION:-118}"
 DEFAULT_MODEL="facebook/opt-1.3b"
 #export CC=/usr/bin/clang
 #export CPP=/usr/bin/clang-cpp

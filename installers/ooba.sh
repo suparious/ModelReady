@@ -99,7 +99,6 @@ if [ -z ${XFORMERS_WHL} ]; then
   progress "Building xformers (this can take a really long time)..."
   XFORMERS_DIR="${INSTALL_DIR}/repositories/xformers"
   if [ ! -d ${XFORMERS_DIR} ]; then
-    rm -rf "${XFORMERS_DIR}"
     git clone https://github.com/facebookresearch/xformers.git "${XFORMERS_DIR}"
   fi
   cd "${INSTALL_DIR}/repositories/xformers"

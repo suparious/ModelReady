@@ -2,10 +2,10 @@
 # This script is used to install the Ooba application
 export XFORMERS_WHL=$1
 # Set the environment variables
-INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
-CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.8}"
-CUDA_VERSION="${CUDA_VERSION:-118}"
-DEFAULT_MODEL="facebook/opt-1.3b"
+export INSTALL_DIR="${INSTALL_DIR:-${HOME}/ooba}"
+export CUDA_HOME="${CUDA_HOME:-/usr/local/cuda-11.8}"
+export CUDA_VERSION="${CUDA_VERSION:-118}"
+export DEFAULT_MODEL="facebook/opt-1.3b"
 #export CC=/usr/bin/clang
 #export CPP=/usr/bin/clang-cpp
 #export CXX=/usr/bin/clang++

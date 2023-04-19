@@ -56,6 +56,7 @@ mkdir -p "${INSTALL_DIR}/repositories"
 
 # Build custom pytorch
 if [ ${CUDA_VERSION} -gt 118 ]; then
+  # any build after 11.8 is currently not supported by pytorch
   progress "Building custom PyTorch for CUDA ${CUDA_VERSION}..."
   if [ ! -d "${INSTALL_DIR}/repositories/pytorch" ]; then
     git clone --recursive https://github.com/pytorch/pytorch "${INSTALL_DIR}/repositories/pytorch"

@@ -97,8 +97,9 @@ cd "${INSTALL_DIR}"
 # Install xformers for extra speed and memory efficiency
 if [ -z ${XFORMERS_WHL} ]; then
   progress "Building xformers (this can take a really long time)..."
-  if [ -d ${INSTALL_DIR}/repositories/xformers ]; then
-    git clone https://github.com/facebookresearch/xformers.git "${INSTALL_DIR}/repositories/xformers"
+  XFORMERS_DIR="${INSTALL_DIR}/repositories/xformers"
+  if [ -d ${XFORMERS_DIR} ]; then
+    git clone https://github.com/facebookresearch/xformers.git "${XFORMERS_DIR}"
   fi
   cd "${INSTALL_DIR}/repositories/xformers"
   git pull

@@ -97,7 +97,7 @@ cd "${INSTALL_DIR}/repositories/GPTQ-for-LLaMa"
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 pip install --upgrade torch torchvision torchaudio --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
-python setup.py clean
+python setup_cuda.py clean
 python setup_cuda.py install
 cd "${INSTALL_DIR}"
 

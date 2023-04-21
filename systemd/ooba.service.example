@@ -6,8 +6,8 @@ Requires=network.target
 [Service]
 Type=simple
 User=YOUR_USERNAME
-Environment="HOME=/home/YOUR_USERNAME/ooba"
-Environment="CUDA_HOME=/usr/local/cuda-11.7"
+Environment="HOME=/home/YOUR_USERNAME"
+Environment="CUDA_HOME=/usr/local/cuda-11.8"
 Environment="PYENV_VERSION=3.11.3"
 Environment="LISTEN_PORT=7860"
 Environment="THREADS=7"

@@ -1,0 +1,40 @@
+Please re-write the following wikipedia article on electromotive force:
+
+Electromotive force
+
+Article
+Talk
+Read
+Edit
+View history
+
+Tools
+From Wikipedia, the free encyclopedia
+Not to be confused with Electromagnetic field.
+Articles about
+Electromagnetism
+Solenoid
+ElectricityMagnetismHistoryTextbooks
+Electrostatics
+Magnetostatics
+Electrodynamics
+Electrical network
+Alternating currentCapacitanceDirect currentElectric currentElectrolysisCurrent densityJoule heatingElectromotive forceImpedanceInductanceOhm's lawParallel circuitResistanceResonant cavitiesSeries circuitVoltageWaveguides
+Covariant formulation
+Scientists
+vte
+In electromagnetism and electronics, electromotive force (also electromotance, abbreviated emf,[1][2] denoted 
+�
+{\mathcal {E}} or 
+�{\displaystyle {\xi }}) is an energy transfer to an electric circuit per unit of electric charge, measured in volts. Devices called electrical transducers provide an emf[3] by converting other forms of energy into electrical energy.[3] Other electrical equipment also produce an emf, such as batteries, which convert chemical energy, and generators, which convert mechanical energy.[4] This energy conversion is achieved by physical forces applying physical work on electric charges. However, electromotive force itself is not a physical force,[5] and ISO/IEC standards have deprecated the term in favor of source voltage or source tension instead (denoted 
+�
+�
+U_{s}).[6][7]
+
+An electronic–hydraulic analogy may view emf as the mechanical work done to water by a pump, which results in a pressure difference (analogous to voltage).[8]
+
+In electromagnetic induction, emf can be defined around a closed loop of a conductor as the electromagnetic work that would be done on an elementary electric charge (such as an electron) if it travels once around the loop.[9]
+
+For two-terminal devices modeled as a Thévenin equivalent circuit, an equivalent emf can be measured as the open-circuit voltage between the two terminals. This emf can drive an electric current if an external circuit is attached to the terminals, in which case the device becomes the voltage source of that circuit.
+
+Although an emf gives rise to a voltage and can be measured as a voltage and may sometimes informally be called a "voltage", they are not the same phenomenon (see § Distinction with potential difference).

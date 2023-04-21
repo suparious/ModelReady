@@ -7,7 +7,8 @@ lspci -nn | egrep -i "3d|display|vga"
 sudo apt install -y nvidia-detect linux-headers-amd64 firmware-misc-nonfree firmware-linux firmware-linux-nonfree
 wget https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/cuda-keyring_1.0-1_all.deb
 sudo dpkg -i cuda-keyring_1.0-1_all.deb
-sudo add-apt-repository contrib
+sudo apt install -y software-properties-common
+sudo add-apt-repository contrib non-free
 sudo apt-get update
 # cuda 12.x still can't compile pytorch on debian 11
 sudo apt install -y \
@@ -47,5 +48,11 @@ sudo swapon -s
 add an entry to your `/etc/fstab` file to make the swapfile permanent
 
 ```bash
-/swapfile   none    swap    sw    0   0
+echo "/swapfile   none    swap    sw    0   0" | sudo tee -a /etc/fstab
+```
+
+(optional) Reboot to apply the changes and instantiate the env variables
+
+```bash
+sudo reboot
 ```

@@ -82,7 +82,7 @@ if [ ${CUDA_VERSION} -gt 118 ]; then
 else
   # install the matching cuda version of pytorch and torchvision
   progress "Installing PyTorch, TorchVision, and TorchAudio for CUDA ${CUDA_VERSION}..."
-  pip install torch torchvision torchaudio --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+  pip install --upgrade torch torchvision torchaudio --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
 fi
 
 # Install GPTQ support for 4bit 128g LLaMA
@@ -90,8 +90,14 @@ progress "Installing GPTQ for LLaMA..."
 if [ ! -d "${INSTALL_DIR}/repositories/GPTQ-for-LLaMa" ]; then
   git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda "${INSTALL_DIR}/repositories/GPTQ-for-LLaMa"
 fi
+cd "${INSTALL_DIR}"
+python -m venv venv
+source venv/bin/activate
 cd "${INSTALL_DIR}/repositories/GPTQ-for-LLaMa"
-pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+pip install --upgrade pip
+pip install --upgrade -r requirements.txt
+pip install --upgrade torch torchvision torchaudio --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+python setup.py clean
 python setup_cuda.py install
 cd "${INSTALL_DIR}"
 
@@ -108,8 +114,8 @@ if [ -z ${XFORMERS_WHL} ]; then
   python -m venv venv
   source venv/bin/activate
   pip install --upgrade pip
-  pip install torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
-  pip install -r requirements.txt
+  pip install --upgrade torch torchvision --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+  pip install --upgrade -r requirements.txt
   pip install wheel
   python setup.py build
   python setup.py bdist_wheel
@@ -119,6 +125,6 @@ fi
 progress "Installing xformers wheel..."
 cd "${INSTALL_DIR}"
 source venv/bin/activate
-pip install ${XFORMERS_WHL}
+pip install --upgrade ${XFORMERS_WHL}
 
 progress "Ooba application installation complete!"

@@ -30,10 +30,16 @@ pip install --upgrade pip
 pip install --upgrade jupyter
 jupyter notebook --generate-config
 deactivate
+progress "       review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
+# set the `c.NotebookApp.token = ''` to disable the token authentication (NOT RECOMMENDED)
+TOKEN_CONFIG=$(grep -v "\#" ${HOME}/.jupyter/jupyter_notebook_config.py | grep "c.NotebookApp.token")
+if [ -z "${TOKEN_CONFIG}" ]; then
+  progress "       add the following line to the configuration file: c.NotebookApp.token = ''"
+  echo "c.NotebookApp.token = ''" | tee -a "${HOME}/.jupyter/jupyter_notebook_config.py"
+fi
 
 # Give some instructions on next steps
 progress "Jupyter Notebook service installation complete!"
-progress "       review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
 progress "               configure the systemd service: /etc/systemd/system/jupyter.service"
 progress "         Once the service is configured, run: sudo systemctl daemon-reload"
 progress "               To start the application, run: sudo systemctl start jupyter"

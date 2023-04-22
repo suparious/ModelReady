@@ -1,5 +1,5 @@
 [Unit]
-Description=Ooba Application
+Description=Jupyter Notebook
 After=network.target
 Requires=network.target
 

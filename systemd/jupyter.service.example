@@ -7,7 +7,7 @@ Requires=network.target
 Type=simple
 User=YOUR_USERNAME
 Environment="HOME=/home/YOUR_USERNAME"
-Environment="LISTEN_PORT=7860"
+Environment="LISTEN_PORT=17256"
 Environment="PARAMS=notebook --ip=0.0.0.0"
 ExecStart=/home/YOUR_USERNAME/llama-ggml-tools/launchers/jupyter.sh
 Restart=on-failure

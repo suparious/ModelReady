@@ -28,12 +28,14 @@ progress "Installing Jupyter apps..."
 source venv/bin/activate
 pip install --upgrade pip
 pip install --upgrade jupyter
+jupyter notebook --generate-config
 deactivate
 
 # Give some instructions on next steps
-progress "Jupyter application installation complete!"
-progress "Please configure /etc/systemd/system/jupyter.service before trying to start the service."
-progress "            Once the service is configured, run: sudo systemctl daemon-reload"
-progress "                  To start the application, run: sudo systemctl start jupyter"
-progress "To enable the application to start on boot, run: sudo systemctl enable jupyter"
-progress "              To view the application logs, run: sudo journalctl -u jupyter -f"
+progress "Jupyter Notebook service installation complete!"
+progress "       review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
+progress "               configure the systemd service: /etc/systemd/system/jupyter.service"
+progress "         Once the service is configured, run: sudo systemctl daemon-reload"
+progress "               To start the application, run: sudo systemctl start jupyter"
+progress "enable the application to start on boot, run: sudo systemctl enable jupyter"
+progress "           To view the application logs, run: sudo journalctl -u jupyter -f"

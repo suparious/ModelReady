@@ -12,7 +12,6 @@ set -e
 
 # Create the default Jupyter Notebook directory
 progress "Creating python virtual environment..."
-conda deactivate
 mkdir -p "${JUPYTER_HOME}"
 cd "${JUPYTER_HOME}"
 pyenv local "${PYENV_VERSION}"

@@ -1,7 +1,8 @@
 #!/bin/bash
-JUPYTER_HOME="${HOME}/jupyter"
-PYENV_VERSION="3.11.3"
 # This script is used to install the Jupyter Notebook application
+export JUPYTER_HOME="${HOME}/jupyter"
+export PYENV_VERSION="${PYENV_VERSION:-3.11.3}"
+export CUDA_VERSION="${CUDA_VERSION:-118}"
 
 # Function to display progress messages
 progress() {

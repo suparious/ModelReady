@@ -1,0 +1,24 @@
+[Unit]
+Description=Redis Server
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Environment="HOME=/home/YOUR_USERNAME"
+Environment="LISTEN_PORT=6379"
+Environment="REDIS_DIR=/usr/local/bin"
+Environment="REDIS_CONFIG=/tmp/redis-server.conf"
+ExecStart=/home/YOUR_USERNAME/llama-ggml-tools/launchers/redis.sh
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=redis-server
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

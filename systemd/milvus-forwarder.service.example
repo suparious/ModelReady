@@ -1,0 +1,23 @@
+[Unit]
+Description=Milvus Proxy Forwarder
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Environment="HOME=/home/YOUR_USERNAME"
+Environment="LISTEN_PORT=19530"
+Environment="RELEASE_NAME=solidrust-ai-assistant"
+ExecStart=/home/YOUR_USERNAME/llama-ggml-tools/launchers/milvus.sh
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=milvus-forwarder
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

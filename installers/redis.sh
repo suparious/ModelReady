@@ -39,3 +39,8 @@ use redis-cli to:
 CONFIG SET protected-mode no
 CONFIG REWRITE
 "
+progress "               configure the systemd service: /etc/systemd/system/redis-server.service"
+progress "         Once the service is configured, run: sudo systemctl daemon-reload"
+progress "               To start the application, run: sudo systemctl start redis-server"
+progress "enable the application to start on boot, run: sudo systemctl enable redis-server"
+progress "           To view the application logs, run: sudo journalctl -u redis-server -f"

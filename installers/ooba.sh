@@ -128,3 +128,8 @@ source venv/bin/activate
 pip install --upgrade ${XFORMERS_WHL}
 
 progress "Ooba application installation complete!"
+progress "               configure the systemd service: /etc/systemd/system/ooba.service"
+progress "         Once the service is configured, run: sudo systemctl daemon-reload"
+progress "               To start the application, run: sudo systemctl start ooba"
+progress "enable the application to start on boot, run: sudo systemctl enable ooba"
+progress "           To view the application logs, run: sudo journalctl -u ooba -f"

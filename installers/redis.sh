@@ -15,7 +15,6 @@ fi
 
 if [ -f /usr/local/bin/redis-server ]; then
   progress "Redis is already installed, please uninstall it first."
-  exit 1
 else
   # Download and build Redis
   progress "Downloading and building Redis..."

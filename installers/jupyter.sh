@@ -32,8 +32,9 @@ pip install --upgrade pip
 pip install --upgrade jupyter
 jupyter notebook --generate-config
 deactivate
-progress "       review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
-# set the `c.NotebookApp.token = ''` to disable the token authentication (NOT RECOMMENDED)
+echo "review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
+
+# set the c.NotebookApp.token to disable the token authentication (NOT RECOMMENDED)
 TOKEN_CONFIG=$(grep -v "\#" ${HOME}/.jupyter/jupyter_notebook_config.py | grep "c.NotebookApp.token")
 if [ -z "${TOKEN_CONFIG}" ]; then
   progress "       add the following line to the configuration file: c.NotebookApp.token = ''"

@@ -7,6 +7,12 @@ progress() {
 
 set -e
 
+# copy example service to systemd
+if [ ! -f /etc/systemd/system/redis-server.service ]; then
+  progress "Copying systemd service file..."
+  sudo cp ../systemd/redis-server.service.example /etc/systemd/system/redis-server.service
+fi
+
 if [ -f /usr/local/bin/redis-server ]; then
   progress "Redis is already installed, please uninstall it first."
   exit 1
@@ -26,3 +32,11 @@ else
   progress "Installing Redis..."
   sudo make install
 fi
+
+progress "Redis server installation complete!"
+
+echo " To expose this service on your network, with no security, then \
+use redis-cli to:
+CONFIG SET protected-mode no
+CONFIG REWRITE
+"

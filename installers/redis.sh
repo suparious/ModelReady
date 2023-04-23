@@ -11,7 +11,7 @@ set -e
 if [ ! -f /etc/systemd/system/redis-server.service ]; then
   progress "Copying systemd service file..."
   sudo cp ../systemd/redis-server.service.example /etc/systemd/system/redis-server.service
-  sudo sed -i 's/YOUR_USERNAME/${USER}/g' /etc/systemd/system/redis-server.service
+  sudo sed -i "s/YOUR_USERNAME/${USER}/g" /etc/systemd/system/redis-server.service
 fi
 
 if [ -f /usr/local/bin/redis-server ]; then

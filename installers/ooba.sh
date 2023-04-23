@@ -24,7 +24,7 @@ set -e
 if [ ! -f /etc/systemd/system/ooba.service ]; then
   progress "Copying systemd service file..."
   sudo cp ../systemd/ooba.service.example /etc/systemd/system/ooba.service
-  sudo sed -i 's/YOUR_USERNAME/${USER}/g' /etc/systemd/system/ooba.service
+  sudo sed -i "s/YOUR_USERNAME/${USER}/g" /etc/systemd/system/ooba.service
 fi
 
 # clone the repository

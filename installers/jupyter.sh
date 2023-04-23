@@ -15,7 +15,7 @@ set -e
 if [ ! -f /etc/systemd/system/jupyter.service ]; then
   progress "Copying systemd service file..."
   sudo cp ../systemd/jupyter.service.example /etc/systemd/system/jupyter.service
-  sudo sed -i 's/YOUR_USERNAME/${USER}/g' /etc/systemd/system/jupyter.service
+  sudo sed -i "s/YOUR_USERNAME/${USER}/g" /etc/systemd/system/jupyter.service
 fi
 
 # Create the default Jupyter Notebook directory

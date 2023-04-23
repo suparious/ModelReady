@@ -34,10 +34,11 @@ jupyter notebook --generate-config
 deactivate
 echo "review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_config.py"
 
-# set the c.NotebookApp.token to disable the token authentication (NOT RECOMMENDED)
+# set the c.NotebookApp.token to disable the token authentication
 TOKEN_CONFIG=$(grep -v "\#" ${HOME}/.jupyter/jupyter_notebook_config.py | grep "c.NotebookApp.token")
+
 if [ -z "${TOKEN_CONFIG}" ]; then
-  progress "       add the following line to the configuration file: c.NotebookApp.token = ''"
+  progress "adding the following line to the configuration file: c.NotebookApp.token = ''"
   echo "c.NotebookApp.token = ''" | tee -a "${HOME}/.jupyter/jupyter_notebook_config.py"
 fi
 

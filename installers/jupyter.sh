@@ -41,7 +41,7 @@ echo "review the default configuration file: ${HOME}/.jupyter/jupyter_notebook_c
 TOKEN_CONFIG=$(grep -v "\#" ${HOME}/.jupyter/jupyter_notebook_config.py | grep "c.NotebookApp.token")
 
 if [ -z "${TOKEN_CONFIG}" ]; then
-  progress "adding the following line to the configuration file: c.NotebookApp.token = ''"
+  progress "adding the following line to ${HOME}/.jupyter/jupyter_notebook_config.py: c.NotebookApp.token = ''"
   echo "c.NotebookApp.token = ''" | tee -a "${HOME}/.jupyter/jupyter_notebook_config.py"
 fi
 

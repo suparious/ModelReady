@@ -30,7 +30,11 @@ progress "Installing Jupyter apps..."
 source venv/bin/activate
 pip install --upgrade pip
 pip install --upgrade jupyter
-jupyter notebook --generate-config
+if [ -f ${HOME}/.jupyter/jupyter_notebook_config.py ]; then
+  progress "found existing jupyter_notebook_config.py, skipping creation"
+else
+  jupyter notebook --generate-config -y
+fi
 deactivate
 
 set +e

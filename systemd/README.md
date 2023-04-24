@@ -1,43 +1,59 @@
-# Oobabooga systemd service
+# Data Science Toolkit Systemd Service
 
-## Automatic install
+This README provides instructions on how to install and configure the systemd service for the Data Science Toolkit.
 
-run the installer in `../installers/ooba.sh` and it will install the service for you.
+## Automatic Installation
 
-## Manual install
-
-copy the ooba.service.example file to `/etc/systemd/system/ooba.service` and edit the `ExecStart` line to point to the correct path of the ooba executable. Also look at the Environment variables and change them to your liking.
+To automatically install the systemd service for your chosen tool, run the corresponding installer script located in the `../installers/` directory:
 
 ```bash
-sudo cp ooba.service.example /etc/systemd/system/ooba.service
+../installers/<name_of_service>.sh
 ```
+
+Replace `<name_of_service>` with the name of the specific data science tool you are installing.
+
+## Manual Installation
+
+If you prefer to install the systemd service manually, follow these steps:
+
+1. Copy the example service file to the systemd system directory:
+
+   ```bash
+   sudo cp <name_of_service>.service.example /etc/systemd/system/<name_of_service>.service
+   ```
+
+2. Edit the `/etc/systemd/system/<name_of_service>.service` file to update the `ExecStart` line with the correct path to the executable of the chosen data science tool.
+
+3. Review the environment variables in the service file and adjust them as necessary to match your requirements.
 
 ## Configuration
 
-Configure the service environment variable and launch parameters
+To configure the service's environment variables and launch parameters, edit the service file:
 
 ```bash
-sudo nano /etc/systemd/system/ooba.service
+sudo nano /etc/systemd/system/<name_of_service>.service
 ```
 
-## Service management
+## Service Management
 
-Then enable and start it with:
+To enable and start the systemd service, run the following commands:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable ooba.service
-sudo systemctl start ooba.service
+sudo systemctl enable <name_of_service>.service
+sudo systemctl start <name_of_service>.service
 ```
 
-Check the running status with:
+You can check the running status of the service with:
 
 ```bash
-sudo systemctl status ooba.service
+sudo systemctl status <name_of_service>.service
 ```
 
-To view the logs:
+To view the logs of the service, use:
 
 ```bash
-sudo journalctl -u ooba.service -f
+sudo journalctl -u <name_of_service>.service -f
 ```
+
+For more information on using and managing systemd services, consult the official systemd documentation.

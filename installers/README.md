@@ -1,30 +1,37 @@
-## Installations requirements
+# Data Science Toolkit Installation Guide
 
-These installers are an attempt to use python to avoid operating system specific installation instructions. The goal is to have a single python script that can be run on any system to install the required software.
+This README provides detailed instructions on how to install the launchers and systemd services for the Data Science Toolkit. The goal is to use a single Python script for installation, minimizing the need for operating system-specific instructions.
 
-At the absolute minimum, these scripts are assuming you have installed and configured:
+## Installation Requirements
+
+At a minimum, ensure you have installed and configured the following prerequisites on your system:
 
 * python3, python3-pip, python3-venv
 * python3-is-python
 
-The following are also recommended, but may get installed for you wherever I was unable to avoid using them:
+We also recommend installing the following tools, as they may be required for some functionalities:
+
 * [pyenv](https://github.com/pyenv/pyenv)
-* [anaconda](https://www.anaconda.com/download#downloads) (if custom building torch on cuda)
-* [minikube](https://minikube.sigs.k8s.io/docs/start/)    (Milvus vector database and search service)
+* [anaconda](https://www.anaconda.com/download#downloads) (for custom building torch with CUDA support)
+* [minikube](https://minikube.sigs.k8s.io/docs/start/) (for Milvus vector database and search service)
 
-Check [DEBIAN.md](./DEBIAN.md) for specific step-by-step instruction on preparing a GNU/Debian based NVIDIA system.
+For step-by-step instructions on preparing a GNU/Debian-based NVIDIA system, refer to [DEBIAN.md](./DEBIAN.md).
 
-## CUDA Support (NVIDIA GPUs)
+## NVIDIA GPU CUDA Support
 
-Check your current cuda version
+If your system has an NVIDIA GPU, follow these steps to enable CUDA support:
 
-```bash
-nvcc --version | awk -F ',' {' print $2 '} | sed -e 's/ //g' | sed -e 's/\.//g' | sed -e 's/release//g' | uniq
-```
+1. Check your current CUDA version:
 
-Manually installing the matching version of pytorch
+   ```bash
+   nvcc --version | awk -F ',' {' print $2 '} | sed -e 's/ //g' | sed -e 's/\.//g' | sed -e 's/release//g' | uniq
+   ```
 
-```bash
-pip install light-the-torch
-ltt install --pytorch-computation-backend=cu${CUDA_VERSION} torch torchvision torchaudio
-```
+2. Install the matching version of PyTorch with CUDA support:
+
+   ```bash
+   pip install light-the-torch
+   ltt install --pytorch-computation-backend=cu${CUDA_VERSION} torch torchvision torchaudio
+   ```
+
+After completing the installation requirements and enabling CUDA support (if applicable), proceed with the installation of the launcher scripts and systemd services as described in the [Launcher Scripts README](../launchers/README.md) and [Systemd Service README](../systemd/README.md).

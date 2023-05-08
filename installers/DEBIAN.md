@@ -17,7 +17,9 @@ sudo apt install -y \
   libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev \
   libffi-dev liblzma-dev htop neofetch\
   python3 python3-pip python3-venv python3-openssl python-is-python3 \
-  cuda-11-8 nvidia-kernel-dkms
+  cuda-11-8 nvidia-kernel-dkms screen cpufrequtils unzip zip
+echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
+sudo systemctl restart cpufrequtils
 # install pyenv
 curl https://pyenv.run | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
@@ -55,4 +57,12 @@ echo "/swapfile   none    swap    sw    0   0" | sudo tee -a /etc/fstab
 
 ```bash
 sudo reboot
+```
+
+
+update `PATH=$PATH:/usr/local/cuda/bin` in `~/.bashrc` and `~/.profile`
+
+```bash
+echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/.profile
 ```

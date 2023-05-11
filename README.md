@@ -1,4 +1,4 @@
-# Data Science Toolkit: A Comprehensive Suite for Data Scientists
+# ModelReady: A Comprehensive Suite for Data Scientists
 
 The Data Science Toolkit is a versatile collection of tools designed for managing data science processes, including model conversion, training, deployment, and integration into various applications. This toolkit aims to streamline the management of AI-related tasks and facilitate the adoption of data science tools in diverse scenarios.
 

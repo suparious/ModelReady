@@ -1,6 +1,6 @@
-# ModelReady: A Comprehensive Suite for Data Scientists
+# ModelReady: Accelerate Your Data Science Workflow
 
-The Data Science Toolkit is a versatile collection of tools designed for managing data science processes, including model conversion, training, deployment, and integration into various applications. This toolkit aims to streamline the management of AI-related tasks and facilitate the adoption of data science tools in diverse scenarios.
+ModelReady is a comprehensive suite of tools designed to streamline data science processes for data scientists and AI practitioners. With a focus on quick setup, convenient launching, service management, model conversion, user prompts, and training automation, ModelReady makes it easy to adopt and manage data science tools in a wide range of scenarios.
 
 ## Table of Contents
 
@@ -17,6 +17,15 @@ The Data Science Toolkit is a versatile collection of tools designed for managin
 5. [Usage](#usage)
 6. [Contributing](#contributing)
 7. [License](#license)
+
+## Key Features
+
+- 🛠️ **Installers:** Simplify the setup of your data science environments with easy-to-use installation tools.
+- 🚀 **Launchers:** Quickly get your data science applications up and running with our pre-configured launchers.
+- 🔄 **Systemd Services:** Manage your data science system services efficiently and reduce overhead.
+- 💡 **Converters:** Seamlessly convert models between different formats and frameworks, increasing versatility and adaptability.
+- ❓ **Prompts:** User-friendly prompts guide you through various operations, making the toolkit more accessible and easy to use.
+- 🏋️‍♀️ **Training:** Automate the training process to focus on fine-tuning your models, saving time and resources.
 
 ## Introduction
 
@@ -36,9 +45,8 @@ Before installing the Data Science Toolkit, ensure that you have the following i
 To get started with the Data Science Toolkit, clone this repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/yourusername/data-science-toolkit.git
-cd data-science-toolkit
-pip install -r requirements.txt
+git clone git clone https://github.com/suparious/ModelReady.git
+cd ModelReady
 ```
 
 ## Quick Start

@@ -30,6 +30,9 @@ progress "Installing Jupyter apps..."
 source venv/bin/activate
 pip install --upgrade pip
 pip install --upgrade jupyter
+# TODO:
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu${CUDA_VERSION}
+# pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
 if [ -f ${HOME}/.jupyter/jupyter_notebook_config.py ]; then
   progress "found existing jupyter_notebook_config.py, skipping creation"
 else

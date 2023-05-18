@@ -3,6 +3,7 @@
 ## This is not required for kubernetes deployments
 ## This script does not use the milvus-forwarder service
 export INSTALL_DIR="${INSTALL_DIR:-${HOME}/milvus}"
+export GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 
 # Function to display progress messages
 progress() {
@@ -27,7 +28,14 @@ else
   mv "${INSTALL_DIR}/docker-compose.yml" "${INSTALL_DIR}/docker-compose.yml.bak"
 fi 
 # Get the latest release tag from Milvus GitHub
-LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/milvus-io/milvus/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+if [ -z ${GITHUB_TOKEN} ]; then
+  echo "Attempting non-authenticated GitHub API call..."
+  LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/milvus-io/milvus/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+else
+  echo "Attempting authenticated GitHub API call..."
+  LATEST_RELEASE=$(curl --silent -H "Authorization: token ${GITHUB_TOKEN}" "https://api.github.com/repos/milvus-io/milvus/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+fi
+
 # Download the Docker Compose file for the latest release
 wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O "${INSTALL_DIR}/docker-compose.yml"
 

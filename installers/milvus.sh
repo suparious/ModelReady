@@ -16,9 +16,8 @@ if [ ! -d ${INSTALL_DIR} ]; then
   progress "Creating configuration directory in ${INSTALL_DIR}..."
   mkdir -p "${INSTALL_DIR}"
 else
-  progress "Updating existing configuration in ${INSTALL_DIR}..."
+  progress "Found existing configuration in ${INSTALL_DIR}..."
 fi
-cd "${INSTALL_DIR}"
 
 # copy example service to systemd
 if [ ! -f /etc/systemd/system/milvus.service ]; then

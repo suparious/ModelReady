@@ -24,5 +24,5 @@ while true; do
     echo "Milvus Docker container has stopped."
     exit 1
   fi
-  sleep 5
+  sleep 15
 done

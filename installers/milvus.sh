@@ -19,11 +19,24 @@ else
   progress "Found existing configuration in ${INSTALL_DIR}..."
 fi
 
+# Download the Docker Compose file for the latest release
+if [ ! -f "${INSTALL_DIR}/docker-compose.yml" ]; then
+  progress "Downloading Docker Compose file for latest release..."
+else
+  progress "Updating existing Docker Compose file in ${INSTALL_DIR}..."
+  mv "${INSTALL_DIR}/docker-compose.yml" "${INSTALL_DIR}/docker-compose.yml.bak"
+fi 
+# Get the latest release tag from Milvus GitHub
+LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/milvus-io/milvus/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+# Download the Docker Compose file for the latest release
+wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O "${INSTALL_DIR}/docker-compose.yml"
+
 # copy example service to systemd
 if [ ! -f /etc/systemd/system/milvus.service ]; then
   progress "Copying systemd service file..."
   sudo cp ../systemd/milvus.service.example /etc/systemd/system/milvus.service
   sudo sed -i "s/YOUR_USERNAME/${USER}/g" /etc/systemd/system/milvus.service
+  sudo sed -i "s/YOUR_USERGROUP/${USER}/g" /etc/systemd/system/milvus.service
 fi
 
 progress "Milvus server installation complete!"

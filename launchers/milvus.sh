@@ -6,15 +6,12 @@ LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/milvus-io/milvus/re
 
 # Look for configuration directory
 if [ ! -d ${INSTALL_DIR} ]; then
-  progress "Creating configuration directory in ${INSTALL_DIR}..."
-  mkdir -p "${INSTALL_DIR}"
-else
-  progress "Updating existing configuration in ${INSTALL_DIR}..."
+  progress "Unable to locate configuration in ${INSTALL_DIR}... Did you run the installer?"
+  exit 1
 fi
-cd "${INSTALL_DIR}"
 
 # Download the Docker Compose file for the latest release
-wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O docker-compose.yml
+wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O "${INSTALL_DIR}/docker-compose-standalone.yml"
 
 # Start Milvus using Docker Compose
-sudo docker-compose up -d
+docker compose up -d ${INSTALL_DIR}/docker-compose-standalone.yml

@@ -11,7 +11,8 @@ if [ ! -d ${INSTALL_DIR} ]; then
 fi
 
 # Download the Docker Compose file for the latest release
-wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O "${INSTALL_DIR}/docker-compose-standalone.yml"
+wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O "${INSTALL_DIR}/docker-compose.yml"
 
 # Start Milvus using Docker Compose
-docker compose up -d ${INSTALL_DIR}/docker-compose-standalone.yml
+cd "${INSTALL_DIR}"
+docker compose up -d

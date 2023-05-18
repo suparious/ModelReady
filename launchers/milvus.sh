@@ -1,23 +1,20 @@
 #!/bin/bash
-RELEASE_NAME="${RELEASE_NAME:-solidrust-ai-assistant}"
-LISTEN_PORT="${LISTEN_PORT:-19530}"
+INSTALL_DIR="${INSTALL_DIR:-${HOME}/milvus}"
 
-# Get the Running milvus-proxy pod name and service port
-## Use this if you have multiple milvus-proxy pods or a cluster setup
-#MILVUS_PROXY="$(kubectl get pod | grep milvus-proxy | grep Running | awk {' print $1 '})"
-## Use this if you have a standalone milvus installation
-MILVUS_PROXY="$(kubectl get pod | grep "${RELEASE_NAME}-milvus" | grep Running | awk {' print $1 '})"
-MILVUS_PROXY_PORT="$(kubectl get pod ${MILVUS_PROXY} --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}')"
-DEPLOYMENT_CHECK="$(kubectl get svc | grep ${RELEASE_NAME} | grep ${MILVUS_PROXY_PORT})"
+# Get the latest release tag from Milvus GitHub
+LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/milvus-io/milvus/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 
-if [ -z "${MILVUS_PROXY}" ]; then
-  echo "Milvus Proxy not Running"
+# Look for configuration directory
+if [ ! -d ${INSTALL_DIR} ]; then
+  progress "Creating configuration directory in ${INSTALL_DIR}..."
+  mkdir -p "${INSTALL_DIR}"
 else
-  echo "Milvus Proxy Running"
-  if [ -z "${DEPLOYMENT_CHECK}" ]; then
-    echo "${RELEASE_NAME} not found"
-  else
-    echo "${RELEASE_NAME} appears deployed"
-    kubectl port-forward --address 0.0.0.0 "service/${RELEASE_NAME}-milvus" ${LISTEN_PORT}:${MILVUS_PROXY_PORT}
-  fi
+  progress "Updating existing configuration in ${INSTALL_DIR}..."
 fi
+cd "${INSTALL_DIR}"
+
+# Download the Docker Compose file for the latest release
+wget https://github.com/milvus-io/milvus/releases/download/${LATEST_RELEASE}/milvus-standalone-docker-compose.yml -O docker-compose.yml
+
+# Start Milvus using Docker Compose
+sudo docker-compose up -d

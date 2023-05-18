@@ -9,7 +9,7 @@ User=YOUR_USERNAME
 Environment="HOME=/home/YOUR_USERNAME"
 Environment="LISTEN_PORT=19530"
 Environment="RELEASE_NAME=solidrust-ai-assistant"
-ExecStart=/home/YOUR_USERNAME/llama-ggml-tools/launchers/milvus.sh
+ExecStart=/home/YOUR_USERNAME/ModelReady/launchers/milvus-forwarder.sh
 Restart=on-failure
 RestartSec=5
 StartLimitIntervalSec=60
